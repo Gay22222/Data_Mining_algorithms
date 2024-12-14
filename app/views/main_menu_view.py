@@ -16,6 +16,8 @@ class MainMenuView(tk.Frame):
             ("Tập Thô", lambda: show_frame_callback("Tập Thô")),
             ("K-Means", lambda: show_frame_callback("K-Means")),
             ("Naive Bayes", lambda: show_frame_callback("Naive Bayes")),
+            ("Hàm phân biệt", lambda: show_frame_callback("Hàm phân biệt")),
+            ("Apriori", lambda: show_frame_callback("Apriori"))
         ]
 
         for text, command in buttons:

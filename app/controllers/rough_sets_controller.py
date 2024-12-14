@@ -17,6 +17,7 @@ class RoughSetsController:
         from views.rough_sets_view import RoughSetsView
         self.view = RoughSetsView(self.app.scrollable_frame, self)
         self.app.frames["Tập Thô"] = self.view
+        self.app.center_frame()
         
 
 
@@ -31,6 +32,7 @@ class RoughSetsController:
                 self.view.file_label.config(text=f"Tải thành công: {file_path.split('/')[-1]}")
                 self.update_treeview(data)
                 self.update_column_and_x_lists(data)
+                self.app.center_frame()
         except Exception as e:
             messagebox.showerror("Lỗi", f"Không thể đọc file: {e}")
 
@@ -130,7 +132,9 @@ class RoughSetsController:
         self.view.target_combobox.set("")
         self.view.result_text.delete(1.0, "end")
         self.view.canvas.delete("all")
-
+        self.view.tree["columns"] = []  # Xóa cấu trúc cột trong TreeView
+        self.view.tree["show"] = ""  # Đặt lại chế độ hiển thị của TreeView
+        self.app.center_frame()
 
     def go_back_to_menu(self):
         self.app.show_frame("main_menu")

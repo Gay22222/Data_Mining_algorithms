@@ -22,6 +22,7 @@ class RoughSetModel:
             result.append(set(self.df.loc[indices, 'ID']))
         return result
 
+
     def b_lower_approximation(self, X, attributes):
         """
         Tính xấp xỉ dưới của tập X theo thuộc tính B.

@@ -2,6 +2,9 @@ import tkinter as tk
 from controllers.main_menu_controller import MainMenuController
 from controllers.kmeans_controller import KMeansController
 from controllers.rough_sets_controller import RoughSetsController
+from controllers.naive_bayes_controller import NaiveBayesController
+from controllers.discernibility_controller import DiscernibilityController
+from controllers.apriori_controller import AprioriController
 from models.scrollable_frame import create_scrollable_frame
 
 class App:
@@ -21,6 +24,10 @@ class App:
         self.main_menu_controller = MainMenuController(self)
         self.kmeans_controller = KMeansController(self)
         self.rough_sets_controller = RoughSetsController(self)
+        self.naive_bayes_controller = NaiveBayesController(self)
+        self.discernibility_controller = DiscernibilityController(self)
+        self.apriori_controller = AprioriController(self)
+
 
     def show_frame(self, frame_key):
         """
@@ -50,17 +57,17 @@ class App:
         # Căn giữa nội dung frame
         self.center_frame()
 
-
-
-
-
     def center_frame(self):
         """
         Căn giữa nội dung trong scrollable_frame.
         """
         self.scroll_canvas.update_idletasks()
+        self.scroll_canvas.configure(scrollregion=self.scroll_canvas.bbox("all"))
         canvas_width = self.scroll_canvas.winfo_width()
         frame_width = self.scrollable_frame.winfo_reqwidth()
+        if frame_width == 0:
+            self.scrollable_frame.update_idletasks()
+            frame_width = self.scrollable_frame.winfo_reqwidth()
         x_offset = max((canvas_width - frame_width) // 2, 0)
         self.scroll_canvas.coords("scrollable_window", x_offset, 0)
     
