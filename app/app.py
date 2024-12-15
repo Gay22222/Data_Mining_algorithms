@@ -6,6 +6,7 @@ from controllers.naive_bayes_controller import NaiveBayesController
 from controllers.discernibility_controller import DiscernibilityController
 from controllers.apriori_controller import AprioriController
 from controllers.correlation_controller import CorrelationController
+from controllers.id3_controller import ID3Controller
 from models.scrollable_frame import create_scrollable_frame
 
 class App:
@@ -21,7 +22,7 @@ class App:
         # Quản lý frames
         self.frames = {}
 
-        # Tạo controller cho Main Menu và K-Means
+        # Tạo controller cho Main Menu và các thuật toán
         self.main_menu_controller = MainMenuController(self)
         self.kmeans_controller = KMeansController(self)
         self.rough_sets_controller = RoughSetsController(self)
@@ -29,6 +30,7 @@ class App:
         self.discernibility_controller = DiscernibilityController(self)
         self.apriori_controller = AprioriController(self)
         self.correlation_controller = CorrelationController(self)
+        self.id3_controller = ID3Controller(self)
 
 
     def show_frame(self, frame_key):

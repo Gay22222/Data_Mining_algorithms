@@ -14,11 +14,12 @@ class MainMenuView(tk.Frame):
         # Các nút chức năng
         buttons = [
             ("Phân tích tương quan", lambda: show_frame_callback("Correlation")),
+            ("Apriori", lambda: show_frame_callback("Apriori")),
             ("Tập Thô", lambda: show_frame_callback("Tập Thô")),
-            ("K-Means", lambda: show_frame_callback("K-Means")),
-            ("Naive Bayes", lambda: show_frame_callback("Naive Bayes")),
             ("Hàm phân biệt", lambda: show_frame_callback("Hàm phân biệt")),
-            ("Apriori", lambda: show_frame_callback("Apriori"))
+            ("Cây quyết định", lambda: show_frame_callback("ID3")),
+            ("K-Means", lambda: show_frame_callback("K-Means")),
+            ("Naive Bayes", lambda: show_frame_callback("Naive Bayes"))    
         ]
 
         for text, command in buttons:

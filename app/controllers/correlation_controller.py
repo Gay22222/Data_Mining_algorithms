@@ -112,11 +112,14 @@ class CorrelationController:
             self.column_y = None
 
             # Reset TreeView của View
-            for treeview in [self.view.data_tree, self.view.stats_tree]:
+            for treeview in [self.view.data_tree]:
                 treeview.delete(*treeview.get_children())  # Xóa toàn bộ dữ liệu trong TreeView
-                treeview["columns"] = []  # Xóa các heading của TreeView
+                treeview["columns"] = []  # Xóa các heading
                 for column in treeview["columns"]:
                     treeview.heading(column, text="")  # Xóa tiêu đề
+
+            # Chỉ xóa dữ liệu trong stats_tree, giữ lại heading
+            self.view.stats_tree.delete(*self.view.stats_tree.get_children())
 
             # Reset nhãn file
             self.view.file_label.config(text="Chưa tải file")
@@ -137,6 +140,7 @@ class CorrelationController:
         except Exception as e:
             messagebox.showerror("Lỗi", f"Không thể reset: {e}")
             self.view.update_log(f"Lỗi khi reset: {e}")
+
 
 
 
