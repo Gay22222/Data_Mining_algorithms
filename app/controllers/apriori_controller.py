@@ -207,17 +207,6 @@ class AprioriController:
             self.view.update_log(f"Lỗi khi sinh luật kết hợp: {e}")
 
 
-
-
-
-
-
-
-
-
-
-
-
     def reset(self):
         """
         Đặt lại toàn bộ dữ liệu và giao diện.

@@ -5,6 +5,7 @@ from controllers.rough_sets_controller import RoughSetsController
 from controllers.naive_bayes_controller import NaiveBayesController
 from controllers.discernibility_controller import DiscernibilityController
 from controllers.apriori_controller import AprioriController
+from controllers.correlation_controller import CorrelationController
 from models.scrollable_frame import create_scrollable_frame
 
 class App:
@@ -27,6 +28,7 @@ class App:
         self.naive_bayes_controller = NaiveBayesController(self)
         self.discernibility_controller = DiscernibilityController(self)
         self.apriori_controller = AprioriController(self)
+        self.correlation_controller = CorrelationController(self)
 
 
     def show_frame(self, frame_key):

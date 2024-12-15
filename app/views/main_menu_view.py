@@ -13,6 +13,7 @@ class MainMenuView(tk.Frame):
 
         # Các nút chức năng
         buttons = [
+            ("Phân tích tương quan", lambda: show_frame_callback("Correlation")),
             ("Tập Thô", lambda: show_frame_callback("Tập Thô")),
             ("K-Means", lambda: show_frame_callback("K-Means")),
             ("Naive Bayes", lambda: show_frame_callback("Naive Bayes")),
