@@ -12,21 +12,6 @@ class KMeansModel:
         """Định dạng tọa độ dưới dạng [x.xx ; y.yy]."""
         return f"[{point[0]:.2f} ; {point[1]:.2f}]"
 
-    def load_data(self, file_path):
-        """
-        Đọc dữ liệu từ file và trả về mảng numpy.
-        """
-        data = []
-        try:
-            with open(file_path, 'r') as file:
-                for line in file:
-                    # Loại bỏ khoảng trắng và xử lý định dạng
-                    point = list(map(float, line.strip().split(',')))
-                    data.append(point)
-            self.data = np.array(data)
-            return self.data
-        except Exception as e:
-            raise ValueError(f"Lỗi khi đọc file: {e}")
 
     def run_kmeans(self, k, max_iters=100, tolerance=1e-4):
         """Thực hiện thuật toán K-Means."""

@@ -46,6 +46,7 @@ class ID3Controller:
             self.view.update_treeview(self.data)
             self.view.file_label.config(text=f"File đã tải: {file_path}")
             self.view.update_log(f"Dữ liệu đã được tải thành công. Cột mục tiêu: {self.target_column}")
+            self.app.center_frame()
         except Exception as e:
             messagebox.showerror("Lỗi", f"Không thể tải file: {e}")
             self.view.update_log(f"Lỗi khi tải file: {e}")
@@ -95,6 +96,7 @@ class ID3Controller:
             # Reset giao diện
             self.view.reset()
             self.view.update_log("Dữ liệu và giao diện đã được reset.")
+            self.app.center_frame()
         except Exception as e:
             messagebox.showerror("Lỗi", f"Không thể reset: {e}")
             self.view.update_log(f"Lỗi khi reset: {e}")

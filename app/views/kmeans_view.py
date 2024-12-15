@@ -58,9 +58,8 @@ class KMeansView(tk.Frame):
 
     def select_file(self):
         """Hàm xử lý chọn file."""
-        file_path = filedialog.askopenfilename(filetypes=[("Text Files", "*.txt")])
-        if file_path:
-            self.controller.load_data(file_path)
+        self.controller.load_data()
+
 
     def run_kmeans(self):
         """Hàm xử lý chạy thuật toán K-Means."""
